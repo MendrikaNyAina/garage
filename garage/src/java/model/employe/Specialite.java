@@ -1,0 +1,19 @@
+package model.employe;
+
+import model.*;
+
+public class Specialite extends Model {
+    String nom;
+
+///getters et setters
+    public String getNom() { return this.nom; }
+    public void setNom( String nom) { this.nom = nom; }
+    
+///Constructors
+    public Specialite() {}
+    public Specialite( String nom ) {
+        setNom(nom);
+    }
+
+///Fonctions de classe
+}
