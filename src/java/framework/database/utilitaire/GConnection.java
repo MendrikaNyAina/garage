@@ -6,7 +6,7 @@ public class GConnection {
 	public static String type_base="postgres";
     public static String database="garage";
     public static String owner="postgres";
-    public static String password="garage";
+    public static String password="mendrika";
     public static String port="5432";
     public static String host = "localhost";
     public static String driver="org.postgresql.Driver";

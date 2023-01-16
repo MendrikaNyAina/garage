@@ -1,41 +1,34 @@
-<footer>
-    <div class="section dirct">
-        <h4>Directrice</h4>
-        <div id="description">
-            <p>TOTO Mertina Claudie</p>
-            <p>Specialiste en Developpement web</p>
-            <p>Titulaire d'un diplome...</p>
-        </div>
-        <div id="imageDi"><img src="../asset/image/directrice.jpg" width="100" height="100" ></div>
-    </div>
-    <div class="section service">
-        <h4>Service</h4>
-        <ul>
-            <li>Reparation </li>
-            <li>La vidange </li>
-            <li>L entretien</li>
-            <li>controle technique</li>
-        </ul>
-    </div>
-    <div class="section piece">
-        <h4>Piece disponnible</h4>
-        <ul>
-            <li><img src="../asset/image/Amortisseur.jpg" >Amortisseur</li>
-            <li><img src="../asset/image/chaise.jpg" >Chaise</li>
-            <li><img src="../asset/image/filtre.jpg" >Filtre</li>
-            <li><img src="../asset/image/Miroir.jpg" >Miroir</li>
-        </ul>
-            <button id="visite">Visiter store</button>
-    </div>
-    <div class="section">
-        <h4>Contact</h4>
-        <ul>
-            
-            <li><i class="fab fa-twitter user"></i>:description... </li>
-            <li><i class="fab fa-facebook user"></i>:description... </li>
-            <li><i class="fab fa-whatsapp user"></i>:description...</li>
-            <li>Tel:<i class="fas fa-phone user"></i>0346603384</li>
-            <li>Email:mertinaclaudietoto@gmail.com</li>
-        </ul>
-    </div>
-</footer>
+               <footer class="footer">
+                         <div class="container-fluid d-flex justify-content-between">
+                              <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright ©
+                                   bootstrapdash.com 2021</span>
+                              <span class="float-none float-sm-end mt-1 mt-sm-0 text-end"> Free <a
+                                        href="#"
+                                        target="_blank">Bootstrap
+                                        admin template</a> from Bootstrapdash.com</span>
+                         </div>
+                    </footer>
+               </div>
+               <!-- main-panel ends -->
+          </div>
+     </div>
+     <!-- container-scroller -->
+     <!-- plugins:js -->
+     <script src="<%= request.getContextPath() %>/assets/vendors/js/vendor.bundle.base.js"></script>
+     <!-- endinject -->
+     <!-- Plugin js for this page -->
+     <script src="<%= request.getContextPath() %>/assets/vendors/chart.js/Chart.min.js"></script>
+     <script src="<%= request.getContextPath() %>/assets/js/jquery.cookie.js" type="text/javascript"></script>
+     <!-- End plugin js for this page -->
+     <!-- inject:js -->
+     <script src="<%= request.getContextPath() %>/assets/js/off-canvas.js"></script>
+     <script src="<%= request.getContextPath() %>/assets/js/hoverable-collapse.js"></script>
+     <script src="<%= request.getContextPath() %>/assets/js/misc.js"></script>
+     <!-- endinject -->
+     <!-- Custom js for this page -->
+     <script src="<%= request.getContextPath() %>/assets/js/dashboard.js"></script>
+     <script src="<%= request.getContextPath() %>/assets/js/todolist.js"></script>
+     <!-- End custom js for this page -->
+</body>
+
+</html>

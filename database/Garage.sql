@@ -103,7 +103,11 @@ create table employe_specialite(
     FOREIGN KEY(specialite_id) REFERENCES specialite(id)
 );
 
-
+INSERT INTO niveau_etude VALUES (default,'Bac');
+INSERT INTO niveau_etude VALUES (default,'Bac+2');
+INSERT INTO niveau_etude VALUES (default,'Bac+3');
+INSERT INTO niveau_etude VALUES (default,'Bac+5');
+INSERT INTO niveau_etude VALUES (default,'Bac+8');
 -- select * from main_oeuvre join specialite on main_oeuvre.specialite_id = specialite.id join type_service on main_oeuvre.type_service_id = type_service.id;
 
 

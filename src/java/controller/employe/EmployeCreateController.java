@@ -51,10 +51,13 @@ public class EmployeCreateController extends HttpServlet {
                 req.setAttribute("listeSpecialite",allSp);
                 req.setAttribute("listeGenre",allGr);
                 req.setAttribute("listeNiveau",allNv);
-                RequestDispatcher dispat = req.getRequestDispatcher("./web/create_employe.jsp");
+                
+                RequestDispatcher dispat = req.getRequestDispatcher("pages/create_employe.jsp");
                 dispat.forward(req,res);
        }catch(Exception exe){
+           exe.printStackTrace();
             out.println(exe.getMessage());
+            req.setAttribute("erreur", exe.getMessage());
        }
     }
      protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException  { 
@@ -66,7 +69,7 @@ public class EmployeCreateController extends HttpServlet {
                 String nom = req.getParameter("nom");
                 String prenom = req.getParameter("prenom");
                 Date date_naissance = Date.valueOf(req.getParameter("date_naissance"));
-                Date date_embauche = Date.valueOf(req.getParameter("datedemboauche"));
+                Date date_embauche = Date.valueOf(req.getParameter("date_embauche"));
                 double salary = Double.parseDouble(req.getParameter("salaire"));
                 String[] specialite = req.getParameterValues("specialite");
                 int genre = Integer.valueOf(req.getParameter("Genre"));
@@ -78,12 +81,14 @@ public class EmployeCreateController extends HttpServlet {
                 NiveauEtude niveau = new NiveauEtude(nom_niveau);
                 Employe employe = new Employe(nom,prenom,date_embauche,date_naissance,gg,niveau);
                 employe.create(connex,liste);
-                RequestDispatcher dispat = req.getRequestDispatcher("./web/create_employe.jsp");
-                dispat.forward(req,res);
+
+                req.setAttribute("message","insertion reussie");
+                doGet(req, res);
        }catch(Exception exe){
             String message = exe.getMessage();
-            out.println(exe.getMessage());
-            req.setAttribute("message",message);
+            //out.println(exe.getMessage());
+            req.setAttribute("erreur",message);
+            doGet(req, res);
        }
     }
 

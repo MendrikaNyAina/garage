@@ -1,6 +1,9 @@
 package model;
 
+import framework.database.annotation.Champs;
+
 public class Genre extends Model {
+    @Champs
     String nom;
 
 ///Getters et setters

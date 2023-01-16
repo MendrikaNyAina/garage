@@ -1,8 +1,10 @@
 package model;
 
+import framework.database.annotation.Champs;
 import framework.database.utilitaire.*;
 
 public class Model extends ObjectBdd {
+    @Champs(primarykey=true)
     Integer id;
 
 ///Getters et setters

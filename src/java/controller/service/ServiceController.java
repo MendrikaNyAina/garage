@@ -34,8 +34,6 @@ public class ServiceController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-   
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -51,16 +49,16 @@ public class ServiceController extends HttpServlet {
         response.setContentType("text/plain");
         PrintWriter out = response.getWriter();
         Connection connex = null;
-       try {
-                connex = GConnection.getSimpleConnection();
-                TypeService service = new TypeService();
-                ArrayList<TypeService> allService = service.findAll(connex);
-                request.setAttribute("listeService",allService);
-                RequestDispatcher dispat = request.getRequestDispatcher("./web/service.jsp");
-                dispat.forward(request,response);
-       }catch(Exception exe){
+        try {
+            connex = GConnection.getSimpleConnection();
+            TypeService service = new TypeService();
+            ArrayList<TypeService> allService = service.findAll(connex);
+            request.setAttribute("listeService", allService);
+            RequestDispatcher dispat = request.getRequestDispatcher("./pages/service.jsp");
+            dispat.forward(request, response);
+        } catch (Exception exe) {
             out.println(exe.getMessage());
-       }
+        }
     }
 
     /**
@@ -76,20 +74,20 @@ public class ServiceController extends HttpServlet {
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         Connection connex = null;
-       try {
-                connex = GConnection.getSimpleConnection();
-                String nomClient = request.getParameter("nom_client");
-                Date dateService = Date.valueOf(request.getParameter("date"));
-                int id_type_Service = Integer.valueOf(request.getParameter("service"));
-                Service service = new Service(id_type_Service,nomClient,dateService);
-                service.create(connex);
-                RequestDispatcher dispat = request.getRequestDispatcher("./web/service_view.jsp");
-                dispat.forward(request,response);
-       }catch(Exception exe){
+        try {
+            connex = GConnection.getSimpleConnection();
+            String nomClient = request.getParameter("nom_client");
+            Date dateService = Date.valueOf(request.getParameter("date"));
+            int id_type_Service = Integer.valueOf(request.getParameter("service"));
+            Service service = new Service(id_type_Service, nomClient, dateService);
+            service.create(connex);
+            RequestDispatcher dispat = request.getRequestDispatcher("./pages/service_view.jsp");
+            dispat.forward(request, response);
+        } catch (Exception exe) {
             String message = exe.getMessage();
             out.println(exe.getMessage());
-            request.setAttribute("message",message);
-       }
+            request.setAttribute("message", message);
+        }
     }
 
     /**

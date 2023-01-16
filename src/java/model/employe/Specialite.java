@@ -17,6 +17,6 @@ public class Specialite extends Model {
     public Specialite( String nom ) {
         setNom(nom);
     }
-
+ 
 ///Fonctions de classe
 }
