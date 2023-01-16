@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/java/controller/employe/EmployeCreateController.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>14</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/V:/Fianarana/L2/S3/Mme%20Baovola/garageIzy/src/java/model/service/TypeServiceSalariale.java</file>
+            <file>file:/V:/Fianarana/L2/S3/Mme%20Baovola/garageIzy/src/java/controller/employe/EmployeCreateController.java</file>
+            <file>file:/V:/Fianarana/L2/S3/Mme%20Baovola/garageIzy/src/java/controller/service/ServiceController.java</file>
+            <file>file:/V:/Fianarana/L2/S3/Mme%20Baovola/garageIzy/src/database/Garage.sql</file>
+            <file>file:/V:/Fianarana/L2/S3/Mme%20Baovola/garageIzy/src/java/model/employe/Specialite.java</file>
+            <file>file:/V:/Fianarana/L2/S3/Mme%20Baovola/garageIzy/src/java/model/employe/Employe.java</file>
+            <file>file:/V:/Fianarana/L2/S3/Mme%20Baovola/garageIzy/src/java/model/employe/NiveauEtude.java</file>
+            <file>file:/V:/Fianarana/L2/S3/Mme%20Baovola/garageIzy/web/pages/create_employe.jsp</file>
+            <file>file:/V:/Fianarana/L2/S3/Mme%20Baovola/garageIzy/web/WEB-INF/web.xml</file>
+            <file>file:/V:/Fianarana/L2/S3/Mme%20Baovola/garageIzy/src/java/framework/database/utilitaire/GConnection.java</file>
+            <file>file:/V:/Fianarana/L2/S3/Mme%20Baovola/garageIzy/src/java/model/employe/EmployeSpecialite.java</file>
+            <file>file:/V:/Fianarana/L2/S3/Mme%20Baovola/garageIzy/src/java/controller/service/ServiceViewsController.java</file>
+            <file>file:/V:/Fianarana/L2/S3/Mme%20Baovola/garageIzy/src/java/model/service/TypeService.java</file>
+            <file>file:/V:/Fianarana/L2/S3/Mme%20Baovola/garageIzy/web/index.jsp</file>
+        </group>
+    </open-files>
+</project-private>
