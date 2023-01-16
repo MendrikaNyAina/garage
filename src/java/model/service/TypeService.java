@@ -13,11 +13,10 @@ import java.sql.*;
  *
  * @author Chalman
  */
+@Table(nomtable="type_service")
 public class TypeService extends Model {
     @Champs
     String nom;
-    @Champs
-    Double prix;
     @Champs
     String description;
     Double montant;
@@ -30,13 +29,6 @@ public class TypeService extends Model {
         this.nom = nom;
     }
 
-    public Double getPrix() {
-        return prix;
-    }
-
-    public void setPrix(Double prix) {
-        this.prix = prix;
-    }
 
     public String getDescription() {
         return description;
@@ -58,14 +50,13 @@ public class TypeService extends Model {
     public TypeService() {
     }
 
-    public TypeService(String nom, Double prix, String description) {
+    public TypeService(String nom,  String description) {
         this.nom = nom;
-        this.prix = prix;
         this.description = description;
     }
     
        
-    public Double calculMontant( Connection con  ) throws Exception {
+    /*public Double calculMontant( Connection con  ) throws Exception {
         boolean iscon=true;
         if(con==null){
             iscon=false;
@@ -84,5 +75,5 @@ public class TypeService extends Model {
             }
         }
         return this.montant;
-    }
+    }*/
 }
