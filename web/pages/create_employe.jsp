@@ -23,11 +23,15 @@
                          </div>
                          <div class="form-group">
                               <label for="exampleInputUsername1">Date d'embauche</label>
-                              <input type="date" class="form-control" id="exampleInputUsername1" name="date_naissance">
+                              <input type="date" class="form-control" id="exampleInputUsername1" name="date_embauche">
+                         </div>
+                         <div class="form-group">
+                              <label for="exampleInputUsername1">Salaire</label>
+                              <input type="number" class="form-control" id="exampleInputUsername1" name="salaire" step="0.01">
                          </div>
                          <div class="form-group">
                               <label for="exampleSelectGender">Genre</label>
-                              <select class="form-control" id="exampleSelectGender" name="Genre">
+                              <select class="form-control" id="exampleSelectGender" name="genre">
                               <% if (request.getAttribute("listeGenre")!=null) { ArrayList<Genre> liste_genre = (ArrayList<Genre>) request.getAttribute("listeGenre"); %>
                               <% for (int i = 0 ; i < liste_genre.size() ;i++) { %>
                                    <option value="<%= liste_genre.get(i).getId()%>"><%= liste_genre.get(i).getNom()%></option>

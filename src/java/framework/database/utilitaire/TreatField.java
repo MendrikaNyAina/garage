@@ -22,6 +22,7 @@ public class TreatField {
     private Method setMethod;
     
     public TreatField(Class c, Field f)throws Exception{
+        System.out.println(f.getName()+" "+c.getSimpleName());
         this.field=f;
         nameCol=getColonne(f);
         isPrimaryKey=isPrimaryKey(f);

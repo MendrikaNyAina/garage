@@ -15,15 +15,17 @@ import model.Model;
  * @author Chalman
  */
 public class Service extends Model{
-    @Champs ( mapcol="id", name="typeService_id")
-    TypeService typeService;
+    @Champs ( mapcol="id", name="type_service_id")
+    private TypeService typeService;
     @Champs
-    Date date_service;
+    private Date date_service;
     @Champs
-    Date nom_client;
+    private Date nom_client;
 
     public Service(int idService, String nomClient, Date dateService) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.typeService=new TypeService(idService);
+        setNom_client(nom_client);
+        setDate_service(dateService);
     }
 
     public TypeService getTypeService() {
@@ -72,14 +74,16 @@ public class Service extends Model{
                     con = GConnection.getSimpleConnection();
                     b = false ;
                 }
+                con.setAutoCommit(false);
                 Service service = new Service();
-                int serviceId = this.sequence("seq_Service",con);
+                int serviceId = this.sequence("service_id_seq",con);
                 this.setId(serviceId);
-                this.create(con);
+                super.create(con);
                 con.commit();
         }catch (Exception exe) {
-            System.out.println(exe.getMessage());
+            //System.out.println(exe.getMessage());
             con.rollback();
+            throw exe;
         }finally {
             if (con!=null && !b){
                 con.close();

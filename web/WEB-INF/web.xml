@@ -22,7 +22,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ServiceViewsController</servlet-name>
-        <url-pattern>/Service_view</url-pattern>
+        <url-pattern>/service_views</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

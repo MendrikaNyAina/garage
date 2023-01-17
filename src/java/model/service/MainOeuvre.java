@@ -6,12 +6,14 @@
 package model.service;
 
 import framework.database.annotation.Champs;
+import framework.database.annotation.Table;
 import model.employe.Specialite;
 
 /**
  *
  * @author Chalman
  */
+@Table(nomtable="main_oeuvre")
 public class MainOeuvre {
     @Champs
     Integer id;
@@ -19,7 +21,7 @@ public class MainOeuvre {
     Specialite specialite;
     @Champs ( name="temps_fournis")
     Double tempsFournis;
-    @Champs
+    @Champs(name="type_service_id")
     Integer serviceId;
 
     public Integer getId() {

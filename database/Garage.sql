@@ -87,16 +87,16 @@ create table employe(
     id integer default nextval('employe_id_seq'::regclass) NOT NULL PRIMARY KEY,
     nom VARCHAR(50),
     prenom VARCHAR(50),
-    date_naissance DATE,
+    date_naissance DATE NOT NULL,
     genre_id int,
     niveau_etude_id int,
     salaire DEC(7,2),
+    date_embauche DATE NOT NULL,
     FOREIGN KEY(genre_id) REFERENCES genre(id),
     FOREIGN KEY(niveau_etude_id) REFERENCES niveau_etude(id)
 );
 
 create table employe_specialite(
-    id integer default nextval('employe_specialite_id_seq'::regclass) NOT NULL PRIMARY KEY,
     employe_id int,
     specialite_id int,
     FOREIGN KEY(employe_id) REFERENCES employe(id),
@@ -123,7 +123,10 @@ INSERT INTO niveau_etude VALUES (default,'Bac+8');
 -- select specialite.taux_horaire*main_oeuvre.temps_fournis*main_oeuvre.quantite as montant,type_service.id, type_service.nom,type_service.description from main_oeuvre join specialite on main_oeuvre.specialite_id = specialite.id join type_service on main_oeuvre.type_service_id = type_service.id;
 
 
-create view v_cout_service as(select specialite.taux_horaire*main_oeuvre.temps_fournis*main_oeuvre.quantite as montant,type_service.id, type_service.nom,type_service.description from main_oeuvre join specialite on main_oeuvre.specialite_id = specialite.id join type_service on main_oeuvre.type_service_id = type_service.id);
+create view v_cout_service as
+(select specialite.taux_horaire*main_oeuvre.temps_fournis*main_oeuvre.quantite::DOUBLE PRECISION as montant,
+type_service.id, type_service.nom,type_service.description from main_oeuvre join specialite on main_oeuvre.specialite_id = specialite.id 
+join type_service on main_oeuvre.type_service_id = type_service.id);
 
 
 

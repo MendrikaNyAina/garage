@@ -4,7 +4,7 @@ import framework.database.annotation.Champs;
 
 public class Genre extends Model {
     @Champs
-    String nom;
+    private String nom;
 
 ///Getters et setters
     public String getNom() { return this.nom; }
@@ -15,6 +15,8 @@ public class Genre extends Model {
     public Genre( String nom ) {
         setNom(nom);
     }
-
+    public Genre(Integer id){
+        setId(id);
+    }
 ///Fonctions de la classe
 }

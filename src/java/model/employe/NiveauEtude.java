@@ -7,7 +7,7 @@ import framework.database.annotation.Table;
 @Table(nomtable="niveau_etude")
 public class NiveauEtude extends Model{
     @Champs
-    String nom;
+    private String nom;
 
 ///Getters et setters
     public String getNom() { return this.nom; }
@@ -19,7 +19,9 @@ public class NiveauEtude extends Model{
     public NiveauEtude( String nom ) {
         setNom(nom);
     }
-
+    public NiveauEtude(Integer id){
+        setId(id);
+    }
 ///Fonctions de la classe
 
 }

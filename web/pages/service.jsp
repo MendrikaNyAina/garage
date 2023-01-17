@@ -1,28 +1,21 @@
-<%@page import="java.util.ArrayList , model.employe.* , model.*"%>
+<%@page import="java.util.ArrayList , model.employe.* , model.*, model.service.*"%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="header.jsp" %>
 <%
     try { 
             ArrayList<TypeService> liste_typeService = (ArrayList<TypeService>) request.getAttribute("listeService");
 %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="header.jsp" %>
 <div class="row">
      <div class="col-md-6 grid-margin stretch-card">
           <div class="card">
                <div class="card-body">
-               <%
-                    if(request.getAttribute("message")!=null){
-                    %>
-                    <div class="alert alert-success" role="alert">
-                         <%=request.getAttribute("message")%>
-                    </div>
-               <% }
-               %>
                     <h4 class="card-title">demande service</h4>
-                    <form class="forms-sample" action="/create_service" method="POST">
+                    <form class="forms-sample" action="create_service" method="POST">
                          <div class="form-group">
                               <label for="exampleInputUsername1">Nom client</label>
                               <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Username"
-                                   name="nom">
+                                   name="nom_client">
                          </div>
                          <div class="form-group">
                               <label for="exampleInputUsername1">Date </label>

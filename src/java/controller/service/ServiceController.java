@@ -25,24 +25,6 @@ import model.service.TypeService;
  */
 public class ServiceController extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -54,11 +36,13 @@ public class ServiceController extends HttpServlet {
             TypeService service = new TypeService();
             ArrayList<TypeService> allService = service.findAll(connex);
             request.setAttribute("listeService", allService);
-            RequestDispatcher dispat = request.getRequestDispatcher("./pages/service.jsp");
-            dispat.forward(request, response);
+            
         } catch (Exception exe) {
-            out.println(exe.getMessage());
+            //out.println(exe.getMessage());
+            request.setAttribute("erreur",exe.getMessage());
         }
+        RequestDispatcher dispat = request.getRequestDispatcher("./pages/service.jsp");
+        dispat.forward(request, response);
     }
 
     /**
@@ -76,18 +60,25 @@ public class ServiceController extends HttpServlet {
         Connection connex = null;
         try {
             connex = GConnection.getSimpleConnection();
+            
             String nomClient = request.getParameter("nom_client");
+
             Date dateService = Date.valueOf(request.getParameter("date"));
+
             int id_type_Service = Integer.valueOf(request.getParameter("service"));
+
             Service service = new Service(id_type_Service, nomClient, dateService);
+
             service.create(connex);
-            RequestDispatcher dispat = request.getRequestDispatcher("./pages/service_view.jsp");
-            dispat.forward(request, response);
+
+            request.setAttribute("message", "insertion reussie");
         } catch (Exception exe) {
-            String message = exe.getMessage();
-            out.println(exe.getMessage());
-            request.setAttribute("message", message);
+            //String message = exe.getMessage();
+            //out.println(exe.getMessage());
+            exe.printStackTrace();
+            request.setAttribute("erreur", exe.getMessage());
         }
+        doGet(request, response);
     }
 
     /**

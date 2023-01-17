@@ -1,4 +1,4 @@
-<%@page import="java.util.ArrayList , model.employe.* , model.*"%>
+<%@page import="java.util.ArrayList , model.employe.* , model.*, model.service.* "%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="header.jsp" %>
 <div class="row">
@@ -26,9 +26,9 @@
                          <tbody>
                               
                               <%
-                                   if(request.getAttribute("listeService") != null)
+                                   if(request.getAttribute("typeServiceSalariale") != null)
                                    {
-                                        ArrayList<TypeServiceSalariale> listeService = (ArrayList<TypeServiceSalariale>) request.getAttribute("listeService");
+                                        ArrayList<TypeServiceSalariale> listeService = (ArrayList<TypeServiceSalariale>) request.getAttribute("typeServiceSalariale");
                                         for(TypeServiceSalariale service : listeService)
                                         {
                               %>

@@ -4,18 +4,23 @@ import framework.database.annotation.Champs;
 import model.*;
 import java.sql.*;
 import util.*;
+import java.sql.Date;
 import framework.database.utilitaire.GConnection;
 
 public class Employe extends Model {
     @Champs
-    private String nom, prenom;
-    @Champs
-    private Date dateEmbauche, dateNaissance;
+    private String nom;
+    @Champs  
+    private String  prenom;
+    @Champs(name="date_embauche")
+    private Date dateEmbauche;
+    @Champs(name="date_naissance")
+    private Date dateNaissance;
     @Champs
     private Double salaire;
     @Champs( mapcol="id", name="genre_id")
     private Genre genre;
-    @Champs( mapcol="id", name="niveauetude_id")
+    @Champs( mapcol="id", name="niveau_etude_id")
     private NiveauEtude niveauetude;
 
 ///Getters et setters
@@ -106,18 +111,21 @@ public class Employe extends Model {
                     con = GConnection.getSimpleConnection();
                     b = false;
                 }
+                con.setAutoCommit(false);
                 EmployeSpecialite emp = new EmployeSpecialite();
-                int employeId = this.sequence("seq_Employe",con);
+                int employeId = sequence("employe_id_seq",con);
                 this.setId(employeId);
-                for (int i = 0 ; i < liste.length ; i++){
-                    liste[i].setSpecialiteId(employeId);
-                }
-                emp.createAll(liste,con);
                 this.create(con);
+                for (int i = 0 ; i < liste.length ; i++){
+                    liste[i].setEmployeId(employeId);
+                    liste[i].create(con);
+                }
+                
                 con.commit();
         }catch (Exception exe) {
-            System.out.println(exe.getMessage());
+            //System.out.println(exe.getMessage());
             con.rollback();
+            throw exe;
         }finally {
             if (con!=null && !b){
                 con.close();

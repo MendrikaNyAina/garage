@@ -38,7 +38,7 @@ public class ReflectClass {
                 table = annotation.nomtable();
             }
         }
-        System.out.println(table);
+        //System.out.println(table);
         return table;
     }
     

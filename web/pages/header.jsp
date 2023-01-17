@@ -95,6 +95,7 @@
                <div class="main-panel">
 
                <%
+                    //out.println("message");
                     if(request.getAttribute("erreur")!=null){
                     %>
                     <div class="alert alert-danger" role="alert">
@@ -102,7 +103,8 @@
                     </div>
                <% }
                %>
-               <%
+                
+               <%  
                     if(request.getAttribute("message")!=null){
                     %>
                     <div class="alert alert-success" role="alert">

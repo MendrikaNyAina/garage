@@ -52,12 +52,13 @@ public class ServiceViewsController extends HttpServlet {
             connex = GConnection.getSimpleConnection();
             TypeServiceSalariale type = new TypeServiceSalariale();
             ArrayList<TypeServiceSalariale> allTypeSalaire = type.findAll(connex);
-            request.setAttribute("typeServiceSalariale",allTypeSalaire);
-            RequestDispatcher dispat = request.getRequestDispatcher("./web/service_view.jsp");
-            dispat.forward(request,response);
+            request.setAttribute("typeServiceSalariale",allTypeSalaire);           
         }catch(Exception exe){
             exe.printStackTrace();
+            request.setAttribute("erreur", exe.getMessage());
         }
+        RequestDispatcher dispat = request.getRequestDispatcher("./pages/service_views.jsp");
+        dispat.forward(request,response);
        
     }
 

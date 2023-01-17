@@ -16,11 +16,14 @@ import java.sql.*;
 @Table(nomtable="type_service")
 public class TypeService extends Model {
     @Champs
-    String nom;
+    private String nom;
     @Champs
-    String description;
-    Double montant;
+    private String description;
+    private Double montant;
 
+    public TypeService(Integer id ){
+        super(id);
+    }
     public String getNom() {
         return nom;
     }

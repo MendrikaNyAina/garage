@@ -52,44 +52,58 @@ public class EmployeCreateController extends HttpServlet {
                 req.setAttribute("listeGenre",allGr);
                 req.setAttribute("listeNiveau",allNv);
                 
-                RequestDispatcher dispat = req.getRequestDispatcher("pages/create_employe.jsp");
-                dispat.forward(req,res);
+                
        }catch(Exception exe){
            exe.printStackTrace();
             out.println(exe.getMessage());
             req.setAttribute("erreur", exe.getMessage());
        }
+       RequestDispatcher dispat = req.getRequestDispatcher("pages/create_employe.jsp");
+        dispat.forward(req,res);
     }
      protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException  { 
         res.setContentType("text/plain");
         PrintWriter out = res.getWriter();
-        Connection connex = null;
+        //req.setAttribute("message", "post");
        try {
-                connex = GConnection.getSimpleConnection();
+                //req.setAttribute("message", "post");
+                
                 String nom = req.getParameter("nom");
+                System.out.println("nom : "+nom)   ;
                 String prenom = req.getParameter("prenom");
-                Date date_naissance = Date.valueOf(req.getParameter("date_naissance"));
-                Date date_embauche = Date.valueOf(req.getParameter("date_embauche"));
-                double salary = Double.parseDouble(req.getParameter("salaire"));
-                String[] specialite = req.getParameterValues("specialite");
-                int genre = Integer.valueOf(req.getParameter("Genre"));
-                EmployeSpecialite empSp = new EmployeSpecialite();
-                EmployeSpecialite[] liste = empSp.createEmpSpecialite(specialite);
-                Genre g = new Genre();
-                Genre gg = g.findById(connex,genre);
-                String nom_niveau = req.getParameter("niveau");
-                NiveauEtude niveau = new NiveauEtude(nom_niveau);
-                Employe employe = new Employe(nom,prenom,date_embauche,date_naissance,gg,niveau);
-                employe.create(connex,liste);
 
+                Date date_naissance = Date.valueOf(req.getParameter("date_naissance"));
+
+                Date date_embauche = Date.valueOf(req.getParameter("date_embauche"));
+
+                double salary = Double.parseDouble(req.getParameter("salaire"));
+
+                String[] specialite = req.getParameterValues("specialite");
+
+                int genre = Integer.valueOf(req.getParameter("genre"));
+
+                EmployeSpecialite empSp = new EmployeSpecialite();
+
+                EmployeSpecialite[] liste = empSp.createEmpSpecialite(specialite);
+                //System.out.println("length"+liste.length);
+                
+                String nom_niveau = req.getParameter("niveau");
+
+                NiveauEtude niveau = new NiveauEtude(Integer.valueOf(nom_niveau));
+
+                Genre gg = new Genre(genre);
+
+                Employe employe = new Employe(nom,prenom,date_embauche,date_naissance,gg,niveau);
+                              
+                employe.create(null,liste);
                 req.setAttribute("message","insertion reussie");
-                doGet(req, res);
        }catch(Exception exe){
             String message = exe.getMessage();
-            //out.println(exe.getMessage());
-            req.setAttribute("erreur",message);
-            doGet(req, res);
+            exe.printStackTrace();
+            System.out.println(exe.getMessage());
+            req.setAttribute("erreur","erreur "+message);          
        }
+       doGet(req, res);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -6,7 +6,7 @@ import framework.database.annotation.*;
 @Table( nomtable="Specialite")
 public class Specialite extends Model {
     @Champs
-    String nom;
+    private String nom;
 
 ///getters et setters
     public String getNom() { return this.nom; }

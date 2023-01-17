@@ -5,7 +5,7 @@ import framework.database.utilitaire.*;
 
 public class Model extends ObjectBdd {
     @Champs(primarykey=true)
-    Integer id;
+    private Integer id;
 
 ///Getters et setters
     public Integer getId() { return this.id; }
